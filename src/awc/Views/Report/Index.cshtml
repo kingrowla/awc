@@ -1,30 +1,92 @@
-﻿@model IEnumerable<awc.Entities.Customer>
+﻿@model IEnumerable<awc.Models.ReportAttributes>
 @{
     ViewData["Title"] = "Reports";
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-       
-        <th></th>
-    </tr>
+<div class="container" style="background-color:white;">
+    <h2><strong>AdventureWorks Reports</strong></h2>
+    <hr>
+    <p class="lead"></p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <div class="btn-group">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="height:34px;">
+                                <span data-bind="label" id="searchLabel">Search Category</span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Customers</a></li>
+                                <li><a href="#">Sales</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <input type="search" name="searchBy" id="searchBy" class="form-control" />
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-           
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
-            </td>*@
-        </tr>
-    }
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="text-align:left;">
+            <h3 style="margin-top:0;"><span class="label label-primary">Customers</span></h3>
+        </div>
+        <div class="col-md-8" style="text-align:right;">
 
-</table>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">Active</button>
+                <button type="button" class="btn btn-default">Moderate</button>
+                <button type="button" class="btn btn-default">Risk</button>
+            </div>
+        </div>
+        <br/><br />
+    </div>
+    <table class="table table-bordered">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerId)
+                    </td>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.CustomerName)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.EmailAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </th>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <ul class="pagination">
+        <li class="disabled"><a href="#">&laquo;</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+</div>

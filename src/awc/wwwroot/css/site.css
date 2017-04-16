@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image:url(../images/grid_noise.png);
+    background-repeat: repeat;
 }
 
 /* Wrapping element */
@@ -35,4 +37,25 @@ textarea {
   .carousel-caption {
     display: none
   }
+}
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  
+  width: auto;
+}
+.navbar-fixed-top{
+    border-bottom: 1px solid #ececec;
+    background-color:white;
+}
+.navbar-toggle{
+    border-color: #dfdfdf;
+}
+.navbar-toggle .icon-bar{
+    background-color: #d0d4d7;
+}
+table{
+    background-color:white;
 }
